@@ -127,6 +127,7 @@ public class Registrar extends javax.swing.JFrame {
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         // TODO add your handling code here:
         setVisible(false);
+        //Actualizacion :D
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     /**
