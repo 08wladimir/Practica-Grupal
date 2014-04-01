@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 
-package practicagrupal;
+package Program;
+
+import Interfaz.Menu;
 
 /**
  *
