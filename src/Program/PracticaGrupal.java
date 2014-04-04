@@ -1,24 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**/
 
 package Program;
 
 import Interfaz.Menu;
 
-/**
- *
- * @author Administrador
- */
+
 public class PracticaGrupal {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        //Se llama a la clase menu del paquete Intefaz
         Menu menu = new Menu();
         menu.setVisible(true);
     }

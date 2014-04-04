@@ -6,6 +6,8 @@
 
 package Interfaz;
 
+import java.io.*;
+
 /**
  *
  * @author Administrador
@@ -17,6 +19,9 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        //Se crea el archivo "txt"
+        String archivo = "Reistro.txt";
+        File f = new File(archivo);
     }
 
     /**
