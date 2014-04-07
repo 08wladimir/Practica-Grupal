@@ -23,7 +23,7 @@ public class RegistroAlumno{
         guardarTxt.println("Materia: "+atributos.materia);
         guardarTxt.println("Nota: "+atributos.nota);
         guardarTxt.close();
-        JOptionPane.showMessageDialog(null, "Se a guardado los datos en el archivo");
+        
     }
     
 }
