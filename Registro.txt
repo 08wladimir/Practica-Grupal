@@ -1,4 +1,4 @@
-Nombre: Wladimir
-Codigo: 123
-Materia: Materia
-Nota: 4.0
+Wladimir
+1
+poo2
+5.0
