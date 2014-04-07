@@ -1,4 +1,4 @@
-Wladimir
-1
-poo2
-5.0
+Nombre: WLadimir
+Codigo: 1
+Materia: calculo
+Nota: 2.0

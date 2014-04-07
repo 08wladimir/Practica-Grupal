@@ -18,10 +18,10 @@ public class RegistroAlumno{
         datosEstudiante(atributos, n, c, m, nota);
         PracticaGrupal p = new PracticaGrupal();
         PrintWriter guardarTxt = new PrintWriter(p.f);
-        guardarTxt.println(atributos.nombre);
-        guardarTxt.println(atributos.codigo);
-        guardarTxt.println(atributos.materia);
-        guardarTxt.println(atributos.nota);
+        guardarTxt.println("Nombre: "+atributos.nombre);
+        guardarTxt.println("Codigo: "+atributos.codigo);
+        guardarTxt.println("Materia: "+atributos.materia);
+        guardarTxt.println("Nota: "+atributos.nota);
         guardarTxt.close();
         JOptionPane.showMessageDialog(null, "Se a guardado los datos en el archivo");
     }
