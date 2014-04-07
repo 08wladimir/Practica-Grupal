@@ -1,4 +1,4 @@
-Wladimir
-1
-Calculo
-4.0
+Nombre: Wladimir
+Codigo: 123
+Materia: Materia
+Nota: 4.0

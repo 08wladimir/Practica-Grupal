@@ -6,6 +6,12 @@
 
 package Interfaz;
 
+import java.io.*;
+import java.util.Scanner;
+import Program.General;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Administrador
@@ -29,6 +35,11 @@ public class Abrir extends javax.swing.JFrame {
     private void initComponents() {
 
         btnCerrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtMostrarInformacionArchivo = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        txtNArchivo = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,21 +50,49 @@ public class Abrir extends javax.swing.JFrame {
             }
         });
 
+        txtMostrarInformacionArchivo.setColumns(20);
+        txtMostrarInformacionArchivo.setRows(5);
+        jScrollPane1.setViewportView(txtMostrarInformacionArchivo);
+
+        jLabel1.setText("Escriba El Nombre Del Archivo Que Desea Abrir");
+
+        jButton1.setText("Abrir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(251, Short.MAX_VALUE)
-                .addComponent(btnCerrar)
-                .addGap(38, 38, 38))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtNArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCerrar))
+                    .addComponent(jScrollPane1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(btnCerrar)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(btnCerrar))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -63,6 +102,33 @@ public class Abrir extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String nombre = String.valueOf(txtNArchivo.getText());
+        General g = new General();
+        String codigo;
+        String nota;
+        
+        if( !nombre.equals("") ) {
+            
+            File f = new File(nombre);
+            Scanner informacionArchivo;
+            try {
+                informacionArchivo = new Scanner(f);
+            while( informacionArchivo.hasNext()== true ) {
+                g.nombre = informacionArchivo.nextLine();
+                codigo = informacionArchivo.nextLine();
+                g.materia = informacionArchivo.nextLine();
+                nota = informacionArchivo.nextLine();
+                txtMostrarInformacionArchivo.setText(g.nombre + "\n" + codigo +"\n"+ g.materia +"\n"+ nota);
+            }
+            informacionArchivo.close();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Abrir.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,5 +167,10 @@ public class Abrir extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtMostrarInformacionArchivo;
+    private javax.swing.JTextField txtNArchivo;
     // End of variables declaration//GEN-END:variables
 }
