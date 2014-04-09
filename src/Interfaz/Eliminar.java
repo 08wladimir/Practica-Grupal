@@ -4,10 +4,13 @@
  */
 package Interfaz;
 
+import Businesslogic.EliminarDatos;
 import Program.General;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -63,6 +66,11 @@ public class Eliminar extends javax.swing.JFrame {
         });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,6 +143,28 @@ public class Eliminar extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+
+         String nombre = String.valueOf(txtNombreArchivo.getText());
+        General g = new General();
+        if( !nombre.equals("") ) {
+            
+            EliminarDatos eliminacion = new  EliminarDatos();
+             try {
+                 eliminacion.Eliminar(nombre);
+               txtNombreArchivo.setText("");
+               txtMostrarInformacionArchivo.setText("");
+               
+             } catch (Exception ex) {
+                 Logger.getLogger(Eliminar.class.getName()).log(Level.SEVERE, null, ex);
+             }
+            
+        }
+        
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments

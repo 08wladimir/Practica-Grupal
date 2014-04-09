@@ -1,4 +1,0 @@
-Nombre: Edward
-Codigo: 234
-Materia: poo2
-Nota: 4.0
