@@ -36,8 +36,9 @@ public class DatosEstudiante extends javax.swing.JFrame {
         btnCerrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtTabla = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtNArchivo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,27 +85,35 @@ public class DatosEstudiante extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(txtTabla);
 
-        jButton1.setText("eliminar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jLabel6.setText("Estudiantes agregados recientemente al archivo de texto ");
+
+        jLabel7.setText("Archivo:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel5)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNArchivo))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
@@ -112,13 +121,11 @@ public class DatosEstudiante extends javax.swing.JFrame {
                                 .addGap(19, 19, 19)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 24, Short.MAX_VALUE)
+                                        .addGap(58, 58, 58)
                                         .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(29, 29, 29)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(23, 23, 23))
+                                        .addGap(75, 75, 75))
                                     .addComponent(txtNota, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtMateria)))
                             .addGroup(layout.createSequentialGroup()
@@ -130,22 +137,17 @@ public class DatosEstudiante extends javax.swing.JFrame {
                                     .addComponent(txtNombre)
                                     .addComponent(txtCodigo))))
                         .addGap(46, 46, 46))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
                 .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtNArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -164,7 +166,6 @@ public class DatosEstudiante extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrar)
-                    .addComponent(jButton1)
                     .addComponent(btnCerrar))
                 .addGap(11, 11, 11)
                 .addComponent(jLabel6)
@@ -184,6 +185,7 @@ public class DatosEstudiante extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         
+        String archivo = txtNArchivo.getText();
         String nombre = txtNombre.getText();
         int codigo = Integer.parseInt(txtCodigo.getText());
         String materia = txtMateria.getText();
@@ -199,36 +201,18 @@ public class DatosEstudiante extends javax.swing.JFrame {
         RegistroAlumno rA = new RegistroAlumno();
         General g = new General();
         try {
-            rA.registroAlArchivo(g, nombre, codigo, materia, nota);
+            rA.registroAlArchivo(g, archivo, nombre, codigo, materia, nota);
             JOptionPane.showMessageDialog(null, "Se a guardado los datos en el archivo");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Nose encontro el archivo");
         }
         
-        
+        txtNArchivo.setText("");
         txtNombre.setText("");
         txtCodigo.setText("");
         txtMateria.setText("");
         txtNota.setText("");
     }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     
-        int fila,n;
-        fila= this.txtTabla.getSelectedRow();
-        if(fila>=0){
-            tabla.removeRow(fila);
-        }
-        RegistroAlumno rA = new RegistroAlumno();
-        General g = new General();
-        try {
-            rA.registroAlArchivo(g, "", 0, "", 0);
-            JOptionPane.showMessageDialog(null, "Se a eliminado los datos en el archivo");
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Nose encontro el archivo");
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,16 +252,17 @@ public class DatosEstudiante extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtMateria;
+    private javax.swing.JTextField txtNArchivo;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNota;
     private javax.swing.JTable txtTabla;

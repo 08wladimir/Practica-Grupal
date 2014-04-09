@@ -1,0 +1,4 @@
+Nombre: JHON
+Codigo: 456
+Materia: poo3
+Nota: 1.0

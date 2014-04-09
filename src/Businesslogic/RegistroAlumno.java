@@ -14,10 +14,12 @@ public class RegistroAlumno{
         atributos.nota = nota;
     }
     
-    public void registroAlArchivo(General atributos, String n, int c, String m, double nota) throws FileNotFoundException{
+    public void registroAlArchivo(General atributos, String archivo, String n, int c, 
+            String m, double nota) throws FileNotFoundException{
         datosEstudiante(atributos, n, c, m, nota);
-        PracticaGrupal p = new PracticaGrupal();
-        PrintWriter guardarTxt = new PrintWriter(p.f);
+        
+        File f = new File(archivo);
+        PrintWriter guardarTxt = new PrintWriter(f);
         guardarTxt.println("Nombre: "+atributos.nombre);
         guardarTxt.println("Codigo: "+atributos.codigo);
         guardarTxt.println("Materia: "+atributos.materia);
