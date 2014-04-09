@@ -7,8 +7,7 @@ package Interfaz;
 import Program.General;
 import java.io.*;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Wladimir
@@ -118,7 +117,7 @@ public class Abrir extends javax.swing.JFrame {
             }
             informacionArchivo.close();
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(Abrir.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "No se ha encontrado el archivo");
             }
         }
     }//GEN-LAST:event_btnAbrirActionPerformed

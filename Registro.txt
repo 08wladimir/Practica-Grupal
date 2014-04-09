@@ -1,4 +1,4 @@
-Nombre: 
-Codigo: 0
-Materia: 
-Nota: 0.0
+Nombre: Wladimir
+Codigo: 9080
+Materia: Calculo
+Nota: 5.0
