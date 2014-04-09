@@ -98,24 +98,24 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        //se crea un objeto y se muestra la interfaz de registro
         DatosEstudiante registrar = new DatosEstudiante();
         registrar.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+        //Se finaliza el programa
         System.exit(0);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        //Se crea un objeto y se muestra la interfaz de abrir el archivo
         Abrir abrir = new Abrir();
         abrir.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        //Se crea un objeto y se muestra la interfaz de eliminar
         Eliminar eliminar = new Eliminar();
         eliminar.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_jMenuItem3ActionPerformed

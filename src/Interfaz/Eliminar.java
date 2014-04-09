@@ -113,51 +113,59 @@ public class Eliminar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        // TODO add your handling code here:
+        //se toma lo que hay en la caja de texto y sele asigna a nombre
         String nombre = String.valueOf(txtNombreArchivo.getText());
+        //Se crea un objeto g de la clase General del Paquete Program
         General g = new General();
+        //Se crean 2 String
         String codigo;
         String nota;
-
+        //Se mira que en nombre halla algo con un if
         if( !nombre.equals("") ) {
-
+            //se busca el archivo
             File f = new File(nombre);
             Scanner informacionArchivo;
             try {
+                //Encuentra el archivo y lo muestra
                 informacionArchivo = new Scanner(f);
                 while( informacionArchivo.hasNext()== true ) {
                     g.nombre = informacionArchivo.nextLine();
                     codigo = informacionArchivo.nextLine();
                     g.materia = informacionArchivo.nextLine();
                     nota = informacionArchivo.nextLine();
+                    //Muestra lo que hay en el archivo buscado
                     txtMostrarInformacionArchivo.setText(g.nombre + "\n" + codigo +"\n"+ g.materia +"\n"+ nota);
                 }
                 informacionArchivo.close();
             } catch (FileNotFoundException ex) {
+                //Si no encuentra el archivo muestra la excepcion
                 JOptionPane.showMessageDialog(null, "No se ha encontrado el archivo");
             }
         }
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        // TODO add your handling code here:
+        //Cierra la interfaz de Eliminar
         setVisible(false);
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
-         String nombre = String.valueOf(txtNombreArchivo.getText());
+        
+        //Toma lo que hay en la caja de texto y se lo asigna al String nombre
+        String nombre = String.valueOf(txtNombreArchivo.getText());
         General g = new General();
         if( !nombre.equals("") ) {
             
             EliminarDatos eliminacion = new  EliminarDatos();
              try {
+                 //Elimina el archivo que se le a dicho 
                  eliminacion.Eliminar(nombre);
-               txtNombreArchivo.setText("");
-               txtMostrarInformacionArchivo.setText("");
+                 txtNombreArchivo.setText("");
+                 txtMostrarInformacionArchivo.setText("");
                
              } catch (Exception ex) {
-                 Logger.getLogger(Eliminar.class.getName()).log(Level.SEVERE, null, ex);
+                 //Si no encuentra el archivo muestra la excepcion
+                 JOptionPane.showMessageDialog(null, "No se ha encontrado el archivo");
              }
             
         }

@@ -96,12 +96,14 @@ public class Abrir extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
-        // TODO add your handling code here:
+        //Se le asigna lo que hay en la caja de texto a nombre
         String nombre = String.valueOf(txtNombreArchivo.getText());
+        //Se crea un objeto
         General g = new General();
         String codigo;
         String nota;
         
+        //Se revisa que en nombre halla algun valor
         if( !nombre.equals("") ) {
             
             File f = new File(nombre);
@@ -109,10 +111,12 @@ public class Abrir extends javax.swing.JFrame {
             try {
                 informacionArchivo = new Scanner(f);
             while( informacionArchivo.hasNext()== true ) {
+                //Se busca lo que hay en el archivo y se trae 
                 g.nombre = informacionArchivo.nextLine();
                 codigo = informacionArchivo.nextLine();
                 g.materia = informacionArchivo.nextLine();
                 nota = informacionArchivo.nextLine();
+                //Muestra lo que hay en el archivo
                 txtMostrarInformacionArchivo.setText(g.nombre + "\n" + codigo +"\n"+ g.materia +"\n"+ nota);
             }
             informacionArchivo.close();
@@ -123,7 +127,7 @@ public class Abrir extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAbrirActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        // TODO add your handling code here:
+        //Se cierra la interfaz de abrir
         setVisible(false);
     }//GEN-LAST:event_btnCerrarActionPerformed
 

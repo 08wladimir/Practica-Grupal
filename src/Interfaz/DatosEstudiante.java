@@ -12,6 +12,7 @@ public class DatosEstudiante extends javax.swing.JFrame {
     DefaultTableModel tabla = new DefaultTableModel();
     
     public DatosEstudiante() {
+        //Le da los titulos a la tabla
         initComponents();
         String titulos[] = {"Nombre","Codigo","Materia","Nota"};
         tabla.setColumnIdentifiers(titulos);
@@ -152,7 +153,7 @@ public class DatosEstudiante extends javax.swing.JFrame {
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
@@ -178,40 +179,82 @@ public class DatosEstudiante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        // TODO add your handling code here:
+        //Cierra la interfaz de registro
         setVisible(false);
-        //Actualizacion :D
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        //Asigna lo que hay en las cajas de texto a los String, int, double
+        //Guarda lo que hay en los atributos en un vector
         
         String archivo = txtNArchivo.getText();
         String nombre = txtNombre.getText();
-        int codigo = Integer.parseInt(txtCodigo.getText());
         String materia = txtMateria.getText();
-        double nota = Double.parseDouble(txtNota.getText());
-        
         String datos[] = new String[4];
         datos[0]=nombre;
-        datos[1]=String.valueOf(codigo);
         datos[2]=materia;
-        datos[3]=String.valueOf(nota);
-        tabla.addRow(datos);
-        
-        RegistroAlumno rA = new RegistroAlumno();
-        General g = new General();
-        try {
-            rA.registroAlArchivo(g, archivo, nombre, codigo, materia, nota);
-            JOptionPane.showMessageDialog(null, "Se a guardado los datos en el archivo");
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Nose encontro el archivo");
+        if(!"".equals(nombre))
+            if(!"".equals(materia))
+                if(!"".equals(archivo))
+                    try{
+                        int codigo = Integer.parseInt(txtCodigo.getText());
+                        datos[1]=String.valueOf(codigo);
+                        try{
+                            double nota = Double.parseDouble(txtNota.getText());
+                            datos[3]=String.valueOf(nota);
+                            if(nota>=0){
+                                if(codigo>0){
+                                    tabla.addRow(datos);
+
+                                    //Se crean 2 objetos 
+                                    RegistroAlumno rA = new RegistroAlumno();
+                                    General g = new General();
+                                    try {
+                                        //Se utiliza el objeto de l clase RegistroAlumno y su metodo registroAlArchivo
+                                        rA.registroAlArchivo(g, archivo, nombre, codigo, materia, nota);
+                                        JOptionPane.showMessageDialog(null, "Se a guardado los datos en el archivo");
+                                    } catch (IOException e) {
+                                        JOptionPane.showMessageDialog(null, "Error");
+                                    }
+
+                                    //Vacia todas las cajas de taxto
+                                    txtNArchivo.setText("");
+                                    txtNombre.setText("");
+                                    txtCodigo.setText("");
+                                    txtMateria.setText("");
+                                    txtNota.setText("");
+                                }
+                                else{
+                                    JOptionPane.showMessageDialog(null, "El codigo Ingresado"
+                                            + " es menor que cero");
+                                }
+                            }
+                            else{
+                                JOptionPane.showMessageDialog(null, "La nota ingresada es"
+                                        + " menor que cero");
+                            }
+                        }
+                        catch(NumberFormatException e){
+                            JOptionPane.showMessageDialog(null, "Debe ingresar numeros"
+                                    + " en la nota");
+                        }
+                    }
+                    catch(NumberFormatException e){
+                        JOptionPane.showMessageDialog(null, "Debe ingresar numeros"
+                                + " en el codigo");
+                    }
+                else{
+                    JOptionPane.showMessageDialog(null, "El campo del nombre "
+                            + "del archivo esta vacio");
+                }
+            else{
+                JOptionPane.showMessageDialog(null, "El campo de la materia "
+                        + "esta vacio");
+            }
+        else{
+            JOptionPane.showMessageDialog(null, "El campo de la nombre de la "
+                    + "persona esta vacio");
         }
-        
-        txtNArchivo.setText("");
-        txtNombre.setText("");
-        txtCodigo.setText("");
-        txtMateria.setText("");
-        txtNota.setText("");
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
